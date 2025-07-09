@@ -19,7 +19,7 @@ import java.util.List;
 //@Slf4j
 public class TraditionalRestController {
 
-    private static final Logger logger = LoggerFactory.getLogger(TraditionalRestController.class);
+    private static final Logger log = LoggerFactory.getLogger(TraditionalRestController.class);
 
     private final RestClient restClient;
     private final ExternalServicesProperties properties;
@@ -32,7 +32,7 @@ public class TraditionalRestController {
                 .retrieve()
                 .body(new ParameterizedTypeReference<List<Product>>() {
                 });
-        logger.info("Received response: {}", list);
+        log.info("Received response: {}", list);
 
         return list;
     }
