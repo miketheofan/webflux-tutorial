@@ -1,3 +1,6 @@
 spring:
   application:
     name: webflux-tutorial
+
+external:
+  demo01: http://localhost:7070/demo01/products
