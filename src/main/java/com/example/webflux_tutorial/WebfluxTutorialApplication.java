@@ -5,8 +5,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.example.${sec}")
 @EnableConfigurationProperties(ExternalServicesProperties.class)
+@EnableR2dbcRepositories
 public class WebfluxTutorialApplication {
 
 	public static void main(String[] args) {

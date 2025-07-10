@@ -28,10 +28,10 @@ public class TraditionalRestController {
     public List<Product> getProducts() {
 
         List<Product> list = this.restClient.get()
-                .uri(properties.getDemo01().getProductsUri())
-                .retrieve()
-                .body(new ParameterizedTypeReference<List<Product>>() {
-                });
+            .uri(properties.getDemo01().getProductsUri())
+            .retrieve()
+            .body(new ParameterizedTypeReference<List<Product>>() {
+            });
         log.info("Received response: {}", list);
 
         return list;
@@ -41,10 +41,10 @@ public class TraditionalRestController {
     public List<Product> getProductsNotorious() {
 
         List<Product> list = this.restClient.get()
-                .uri(properties.getDemo01().getProductsNotoriousUri())
-                .retrieve()
-                .body(new ParameterizedTypeReference<List<Product>>() {
-                });
+            .uri(properties.getDemo01().getProductsNotoriousUri())
+            .retrieve()
+            .body(new ParameterizedTypeReference<List<Product>>() {
+            });
         log.info("Received response: {}", list);
 
         return list;
