@@ -28,7 +28,20 @@ public class TraditionalRestController {
     public List<Product> getProducts() {
 
         List<Product> list = this.restClient.get()
-                .uri(properties.getDemo01())
+                .uri(properties.getDemo01().getProductsUri())
+                .retrieve()
+                .body(new ParameterizedTypeReference<List<Product>>() {
+                });
+        log.info("Received response: {}", list);
+
+        return list;
+    }
+
+    @GetMapping("/products/notorious")
+    public List<Product> getProductsNotorious() {
+
+        List<Product> list = this.restClient.get()
+                .uri(properties.getDemo01().getProductsNotoriousUri())
                 .retrieve()
                 .body(new ParameterizedTypeReference<List<Product>>() {
                 });

@@ -3,4 +3,6 @@ spring:
     name: webflux-tutorial
 
 external:
-  demo01: http://localhost:7070/demo01/products
+  demo01:
+    productsUri: http://localhost:7070/demo01/products
+    productsNotoriousUri: http://localhost:7070/demo01/products/notorious
