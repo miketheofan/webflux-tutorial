@@ -1,4 +1,4 @@
-package com.example.webflux_tutorial.model;
+package com.example.webflux_tutorial.sec01.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;

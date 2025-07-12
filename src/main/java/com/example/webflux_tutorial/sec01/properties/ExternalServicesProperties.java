@@ -1,4 +1,4 @@
-package com.example.webflux_tutorial.properties;
+package com.example.webflux_tutorial.sec01.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

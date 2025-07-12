@@ -67,3 +67,23 @@ INSERT INTO customer_order (customer_id, product_id, amount, order_date)
 VALUES
     (3, 2, 750, CURRENT_TIMESTAMP),
     (3, 2, 775, CURRENT_TIMESTAMP);
+
+--SELECT p.*
+--FROM customer c
+--    INNER JOIN customer_order co ON c.id = co.customer_id
+--    INNER JOIN product p ON co.product_id = p.id
+--WHERE c.name :name
+
+--SELECT
+--    co.order_id,
+--    c.name AS customer_name,
+--    p.description AS product_name,
+--    co.amount,
+--    co.order_date
+--FROM
+--    customer c
+--INNER JOIN customer_order co ON c.id = co.customer_id
+--INNER JOIN product p ON p.id = co.product_id
+--WHERE
+--    p.description = :description
+--ORDER BY co.amount DESC

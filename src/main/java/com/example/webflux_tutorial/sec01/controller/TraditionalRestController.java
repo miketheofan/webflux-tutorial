@@ -1,7 +1,7 @@
-package com.example.webflux_tutorial.controller;
+package com.example.webflux_tutorial.sec01.controller;
 
-import com.example.webflux_tutorial.properties.ExternalServicesProperties;
-import com.example.webflux_tutorial.model.Product;
+import com.example.webflux_tutorial.sec01.properties.ExternalServicesProperties;
+import com.example.webflux_tutorial.sec01.model.Product;
 import lombok.AllArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

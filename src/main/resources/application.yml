@@ -1,13 +1,13 @@
 spring:
-  application:
-    name: webflux-tutorial
-  r2dbc:
-    url: r2dbc:postgresql://localhost:5432/userdb
-    username: myuser
-    password: mypassword
+#  application:
+#    name: webflux-tutorial
+#  r2dbc:
+#    url: r2dbc:postgresql://localhost:5432/userdb
+#    username: myuser
+#    password: mypassword
   sql:
     init:
-      data-locations: sql/data.sql
+      data-locations: classpath:sql/data.sql
 
 external:
   demo01:
@@ -18,6 +18,6 @@ logging:
   level:
     org:
       springframework:
-        r2dbc: TRACE
+        r2dbc: DEBUG
 
-sec: webflux_tutorial
+sec: sec01
