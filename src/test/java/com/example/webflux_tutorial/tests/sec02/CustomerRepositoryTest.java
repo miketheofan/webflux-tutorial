@@ -1,4 +1,4 @@
-package com.example.webflux_tutorial.tests;
+package com.example.webflux_tutorial.tests.sec02;
 
 import com.example.webflux_tutorial.sec02.entity.Customer;
 import com.example.webflux_tutorial.sec02.repository.CustomerRepository;
@@ -9,13 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import reactor.test.StepVerifier;
 
 @Slf4j
-public class CustomerRepositoryTest extends AbstractTest {
+class CustomerRepositoryTest extends AbstractTest {
 
     @Autowired
     private CustomerRepository repository;
 
     @Test
-    public void findAll() {
+    void findAll() {
         this.repository.findAll()
                 .doOnNext(c -> log.info("{}", c))
                 .as(StepVerifier::create)
@@ -25,7 +25,7 @@ public class CustomerRepositoryTest extends AbstractTest {
     }
 
     @Test
-    public void findById() {
+    void findById() {
         this.repository.findById(2)
                 .doOnNext(c -> log.info("{}", c))
                 .as(StepVerifier::create)
@@ -35,7 +35,7 @@ public class CustomerRepositoryTest extends AbstractTest {
     }
 
     @Test
-    public void findByName() {
+    void findByName() {
         this.repository.findByName("jake")
                 .doOnNext(c -> log.info("{}", c))
                 .as(StepVerifier::create)
@@ -45,7 +45,7 @@ public class CustomerRepositoryTest extends AbstractTest {
     }
 
     @Test
-    public void findByEmailEndingWith() {
+    void findByEmailEndingWith() {
         this.repository.findByEmailEndingWith("ke@gmail.com")
                 .doOnNext(c -> log.info("{}", c))
                 .as(StepVerifier::create)
@@ -56,7 +56,7 @@ public class CustomerRepositoryTest extends AbstractTest {
     }
 
     @Test
-    public void insertAndDeleteCustomer() {
+    void insertAndDeleteCustomer() {
         Customer customer = new Customer();
         customer.setName("test-name");
         customer.setEmail("test-email@gmail.com");
@@ -83,7 +83,7 @@ public class CustomerRepositoryTest extends AbstractTest {
     }
 
     @Test
-    public void updateCustomer() {
+    void updateCustomer() {
         this.repository.findByName("ethan")
                 .doOnNext(c -> c.setName("noel"))
                 .flatMap(c -> this.repository.save(c))

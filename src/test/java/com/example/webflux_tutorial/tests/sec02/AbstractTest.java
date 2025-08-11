@@ -1,4 +1,4 @@
-package com.example.webflux_tutorial.tests;
+package com.example.webflux_tutorial.tests.sec02;
 
 import org.springframework.boot.test.context.SpringBootTest;
 

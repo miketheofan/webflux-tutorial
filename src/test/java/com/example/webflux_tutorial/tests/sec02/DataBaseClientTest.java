@@ -1,4 +1,4 @@
-package com.example.webflux_tutorial.tests;
+package com.example.webflux_tutorial.tests.sec02;
 
 import com.example.webflux_tutorial.sec02.dto.OrderDetails;
 import lombok.extern.slf4j.Slf4j;
@@ -9,13 +9,13 @@ import org.springframework.r2dbc.core.DatabaseClient;
 import reactor.test.StepVerifier;
 
 @Slf4j
-public class DataBaseClientTest extends AbstractTest {
+class DataBaseClientTest extends AbstractTest {
 
     @Autowired
     private DatabaseClient client;
 
     @Test
-    public void orderDetailsByProduct() {
+    void orderDetailsByProduct() {
         String query = """
             SELECT
                 co.order_id,

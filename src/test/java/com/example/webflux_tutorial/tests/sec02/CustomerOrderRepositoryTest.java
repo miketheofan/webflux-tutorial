@@ -1,4 +1,4 @@
-package com.example.webflux_tutorial.tests;
+package com.example.webflux_tutorial.tests.sec02;
 
 import com.example.webflux_tutorial.sec02.repository.CustomerOrderRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -8,13 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import reactor.test.StepVerifier;
 
 @Slf4j
-public class CustomerOrderRepositoryTest extends AbstractTest {
+class CustomerOrderRepositoryTest extends AbstractTest {
 
     @Autowired
     private CustomerOrderRepository repository;
 
     @Test
-    public void productsOrderedByCustomer() {
+    void productsOrderedByCustomer() {
         this.repository.getProductsOrderedByCustomer("mike")
                 .doOnNext(c -> log.info("{}", c))
                 .as(StepVerifier::create)
@@ -24,7 +24,7 @@ public class CustomerOrderRepositoryTest extends AbstractTest {
     }
 
     @Test
-    public void orderDetailsByProduct() {
+    void orderDetailsByProduct() {
         this.repository.getOrderDetailsByProduct("iphone 20")
                 .doOnNext(c -> log.info("{}", c))
                 .as(StepVerifier::create)

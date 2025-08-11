@@ -1,4 +1,4 @@
-package com.example.webflux_tutorial.tests;
+package com.example.webflux_tutorial.tests.sec02;
 
 import com.example.webflux_tutorial.sec02.repository.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -10,13 +10,13 @@ import org.springframework.data.domain.Sort;
 import reactor.test.StepVerifier;
 
 @Slf4j
-public class ProductRepositoryTest extends AbstractTest {
+class ProductRepositoryTest extends AbstractTest {
 
     @Autowired
     private ProductRepository repository;
 
     @Test
-    public void findProductsInPriceRange() {
+    void findProductsInPriceRange() {
         this.repository.findByPriceBetween(500, 1500)
                 .doOnNext(p -> log.info("{}", p))
                 .as(StepVerifier::create)
@@ -29,7 +29,7 @@ public class ProductRepositoryTest extends AbstractTest {
     }
 
     @Test
-    public void findAllPageable() {
+    void findAllPageable() {
         this.repository.findAllBy(PageRequest.of(0, 3).withSort(Sort.by("price").ascending()))
                 .doOnNext(p -> log.info("{}", p))
                 .as(StepVerifier::create)
