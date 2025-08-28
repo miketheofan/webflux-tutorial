@@ -16,7 +16,8 @@ public class RouterConfiguration {
 
     private static final String CUSTOMERS_PATH = "/customers";
     private static final String CUSTOMERS_BY_ID_PATH = "/customers/{id}";
-    private static final String CUSTOMERS_PAGINATED_PATH = "/customers/paginated";
+    //    private static final String CUSTOMERS_BY_ID_PATH_short = "/{id}";
+    private static final String CUSTOMERS_PAGINATED_PATH = "/paginated";
 
     private CustomerRequestHandler handler;
     private ApplicationExceptionHandler exceptionHandler;
@@ -24,14 +25,19 @@ public class RouterConfiguration {
     @Bean
     public RouterFunction<ServerResponse> customerRoutes() {
         return RouterFunctions.route()
+//                .path("customers", this::customerRoutes2)
                 .GET(CUSTOMERS_PATH, this.handler::allCustomers)
                 .GET(CUSTOMERS_PAGINATED_PATH, this.handler::paginatedCustomers)
                 .GET(CUSTOMERS_BY_ID_PATH, this.handler::getCustomer)
+//                .GET(CUSTOMERS_BY_ID_PATH, RequestPredicates.path("*/1?"), this.handler::getCustomer)
                 .POST(CUSTOMERS_PATH, this.handler::saveCustomer)
                 .PUT(CUSTOMERS_BY_ID_PATH, this.handler::updateCustomer)
                 .DELETE(CUSTOMERS_BY_ID_PATH, this.handler::deleteCustomer)
                 .onError(CustomerNotFoundException.class, this.exceptionHandler::handleException)
                 .onError(InvalidInputException.class, this.exceptionHandler::handleException)
+//                .filter(((request, next) -> {
+//                    return ServerResponse.badRequest().build();
+//                }))
                 .build();
     }
 }
